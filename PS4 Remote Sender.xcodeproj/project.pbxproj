@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6CB919B92185A2F00024E88D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919B82185A2F00024E88D /* AppDelegate.swift */; };
+		6CB919BB2185A2F00024E88D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919BA2185A2F00024E88D /* ViewController.swift */; };
+		6CB919BD2185A2F40024E88D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB919BC2185A2F40024E88D /* Assets.xcassets */; };
+		6CB919C02185A2F40024E88D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB919BE2185A2F40024E88D /* Main.storyboard */; };
+		6CB919CC2185A2F40024E88D /* PS4_Remote_SenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919CB2185A2F40024E88D /* PS4_Remote_SenderTests.swift */; };
+		6CB919D72185A2F40024E88D /* PS4_Remote_SenderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919D62185A2F40024E88D /* PS4_Remote_SenderUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6CB919C82185A2F40024E88D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CB919AD2185A2F00024E88D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CB919B42185A2F00024E88D;
+			remoteInfo = "PS4 Remote Sender";
+		};
+		6CB919D32185A2F40024E88D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CB919AD2185A2F00024E88D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CB919B42185A2F00024E88D;
+			remoteInfo = "PS4 Remote Sender";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6CB919B52185A2F00024E88D /* PS4 Remote Sender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PS4 Remote Sender.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB919B82185A2F00024E88D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6CB919BA2185A2F00024E88D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6CB919BC2185A2F40024E88D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6CB919BF2185A2F40024E88D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CB919C12185A2F40024E88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PS4_Remote_Sender.entitlements; sourceTree = "<group>"; };
+		6CB919C72185A2F40024E88D /* PS4 Remote SenderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PS4 Remote SenderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB919CB2185A2F40024E88D /* PS4_Remote_SenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PS4_Remote_SenderTests.swift; sourceTree = "<group>"; };
+		6CB919CD2185A2F40024E88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CB919D22185A2F40024E88D /* PS4 Remote SenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PS4 Remote SenderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB919D62185A2F40024E88D /* PS4_Remote_SenderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PS4_Remote_SenderUITests.swift; sourceTree = "<group>"; };
+		6CB919D82185A2F40024E88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CB919B22185A2F00024E88D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919C42185A2F40024E88D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919CF2185A2F40024E88D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CB919AC2185A2F00024E88D = {
+			isa = PBXGroup;
+			children = (
+				6CB919B72185A2F00024E88D /* PS4 Remote Sender */,
+				6CB919CA2185A2F40024E88D /* PS4 Remote SenderTests */,
+				6CB919D52185A2F40024E88D /* PS4 Remote SenderUITests */,
+				6CB919B62185A2F00024E88D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CB919B62185A2F00024E88D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CB919B52185A2F00024E88D /* PS4 Remote Sender.app */,
+				6CB919C72185A2F40024E88D /* PS4 Remote SenderTests.xctest */,
+				6CB919D22185A2F40024E88D /* PS4 Remote SenderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CB919B72185A2F00024E88D /* PS4 Remote Sender */ = {
+			isa = PBXGroup;
+			children = (
+				6CB919B82185A2F00024E88D /* AppDelegate.swift */,
+				6CB919BA2185A2F00024E88D /* ViewController.swift */,
+				6CB919BC2185A2F40024E88D /* Assets.xcassets */,
+				6CB919BE2185A2F40024E88D /* Main.storyboard */,
+				6CB919C12185A2F40024E88D /* Info.plist */,
+				6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */,
+			);
+			path = "PS4 Remote Sender";
+			sourceTree = "<group>";
+		};
+		6CB919CA2185A2F40024E88D /* PS4 Remote SenderTests */ = {
+			isa = PBXGroup;
+			children = (
+				6CB919CB2185A2F40024E88D /* PS4_Remote_SenderTests.swift */,
+				6CB919CD2185A2F40024E88D /* Info.plist */,
+			);
+			path = "PS4 Remote SenderTests";
+			sourceTree = "<group>";
+		};
+		6CB919D52185A2F40024E88D /* PS4 Remote SenderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6CB919D62185A2F40024E88D /* PS4_Remote_SenderUITests.swift */,
+				6CB919D82185A2F40024E88D /* Info.plist */,
+			);
+			path = "PS4 Remote SenderUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CB919B42185A2F00024E88D /* PS4 Remote Sender */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB919DB2185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote Sender" */;
+			buildPhases = (
+				6CB919B12185A2F00024E88D /* Sources */,
+				6CB919B22185A2F00024E88D /* Frameworks */,
+				6CB919B32185A2F00024E88D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PS4 Remote Sender";
+			productName = "PS4 Remote Sender";
+			productReference = 6CB919B52185A2F00024E88D /* PS4 Remote Sender.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6CB919C62185A2F40024E88D /* PS4 Remote SenderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB919DE2185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote SenderTests" */;
+			buildPhases = (
+				6CB919C32185A2F40024E88D /* Sources */,
+				6CB919C42185A2F40024E88D /* Frameworks */,
+				6CB919C52185A2F40024E88D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CB919C92185A2F40024E88D /* PBXTargetDependency */,
+			);
+			name = "PS4 Remote SenderTests";
+			productName = "PS4 Remote SenderTests";
+			productReference = 6CB919C72185A2F40024E88D /* PS4 Remote SenderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6CB919D12185A2F40024E88D /* PS4 Remote SenderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB919E12185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote SenderUITests" */;
+			buildPhases = (
+				6CB919CE2185A2F40024E88D /* Sources */,
+				6CB919CF2185A2F40024E88D /* Frameworks */,
+				6CB919D02185A2F40024E88D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CB919D42185A2F40024E88D /* PBXTargetDependency */,
+			);
+			name = "PS4 Remote SenderUITests";
+			productName = "PS4 Remote SenderUITests";
+			productReference = 6CB919D22185A2F40024E88D /* PS4 Remote SenderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CB919AD2185A2F00024E88D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = ThatWeirdSoft;
+				TargetAttributes = {
+					6CB919B42185A2F00024E88D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					6CB919C62185A2F40024E88D = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 6CB919B42185A2F00024E88D;
+					};
+					6CB919D12185A2F40024E88D = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 6CB919B42185A2F00024E88D;
+					};
+				};
+			};
+			buildConfigurationList = 6CB919B02185A2F00024E88D /* Build configuration list for PBXProject "PS4 Remote Sender" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CB919AC2185A2F00024E88D;
+			productRefGroup = 6CB919B62185A2F00024E88D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CB919B42185A2F00024E88D /* PS4 Remote Sender */,
+				6CB919C62185A2F40024E88D /* PS4 Remote SenderTests */,
+				6CB919D12185A2F40024E88D /* PS4 Remote SenderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CB919B32185A2F00024E88D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB919BD2185A2F40024E88D /* Assets.xcassets in Resources */,
+				6CB919C02185A2F40024E88D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919C52185A2F40024E88D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919D02185A2F40024E88D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CB919B12185A2F00024E88D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB919BB2185A2F00024E88D /* ViewController.swift in Sources */,
+				6CB919B92185A2F00024E88D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919C32185A2F40024E88D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB919CC2185A2F40024E88D /* PS4_Remote_SenderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB919CE2185A2F40024E88D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB919D72185A2F40024E88D /* PS4_Remote_SenderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CB919C92185A2F40024E88D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CB919B42185A2F00024E88D /* PS4 Remote Sender */;
+			targetProxy = 6CB919C82185A2F40024E88D /* PBXContainerItemProxy */;
+		};
+		6CB919D42185A2F40024E88D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CB919B42185A2F00024E88D /* PS4 Remote Sender */;
+			targetProxy = 6CB919D32185A2F40024E88D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6CB919BE2185A2F40024E88D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CB919BF2185A2F40024E88D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CB919D92185A2F40024E88D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6CB919DA2185A2F40024E88D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		6CB919DC2185A2F40024E88D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PS4 Remote Sender/PS4_Remote_Sender.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote Sender/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-Sender";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		6CB919DD2185A2F40024E88D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PS4 Remote Sender/PS4_Remote_Sender.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote Sender/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-Sender";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		6CB919DF2185A2F40024E88D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote SenderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-SenderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PS4 Remote Sender.app/Contents/MacOS/PS4 Remote Sender";
+			};
+			name = Debug;
+		};
+		6CB919E02185A2F40024E88D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote SenderTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-SenderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PS4 Remote Sender.app/Contents/MacOS/PS4 Remote Sender";
+			};
+			name = Release;
+		};
+		6CB919E22185A2F40024E88D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote SenderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-SenderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = "PS4 Remote Sender";
+			};
+			name = Debug;
+		};
+		6CB919E32185A2F40024E88D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5553N9MR8A;
+				INFOPLIST_FILE = "PS4 Remote SenderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-SenderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = "PS4 Remote Sender";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CB919B02185A2F00024E88D /* Build configuration list for PBXProject "PS4 Remote Sender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB919D92185A2F40024E88D /* Debug */,
+				6CB919DA2185A2F40024E88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CB919DB2185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote Sender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB919DC2185A2F40024E88D /* Debug */,
+				6CB919DD2185A2F40024E88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CB919DE2185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote SenderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB919DF2185A2F40024E88D /* Debug */,
+				6CB919E02185A2F40024E88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CB919E12185A2F40024E88D /* Build configuration list for PBXNativeTarget "PS4 Remote SenderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB919E22185A2F40024E88D /* Debug */,
+				6CB919E32185A2F40024E88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CB919AD2185A2F00024E88D /* Project object */;
+}
