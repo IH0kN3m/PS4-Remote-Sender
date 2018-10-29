@@ -11,13 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var viewController: ViewController?
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         if viewController?.sendButton.title == "STOP" {
-            viewController?.stopExecution(true)
+            viewController?.stopExecution(isCanceled: true)
         }
         viewController?.freeAuthorizationRef()
     }

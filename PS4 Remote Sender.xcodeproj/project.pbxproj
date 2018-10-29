@@ -22,6 +22,7 @@
 		6CE756622185F4E00040DF8C /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756552185F4AD0040DF8C /* RemoteProcessProtocol.swift */; };
 		6CE756632185F4E00040DF8C /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756542185F4AD0040DF8C /* CodesignChecker.swift */; };
 		6CE756652185FC970040DF8C /* AppAuthorizationRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756642185FC970040DF8C /* AppAuthorizationRights.swift */; };
+		6CF7D27421877822007607A2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6CF7D27321877822007607A2 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +71,7 @@
 		6CE756582185F4AD0040DF8C /* PrivilegedTaskRunnerHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PrivilegedTaskRunnerHelper-Launchd.plist"; sourceTree = "<group>"; };
 		6CE756592185F4AE0040DF8C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6CE756642185FC970040DF8C /* AppAuthorizationRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthorizationRights.swift; sourceTree = "<group>"; };
+		6CF7D27321877822007607A2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				6CB919B72185A2F00024E88D /* PS4 Remote Sender */,
 				6CE7564C2185F4910040DF8C /* PS4RemoteSenderHelper */,
+				6CF7D27321877822007607A2 /* README.md */,
 				6CB919B62185A2F00024E88D /* Products */,
 				6CAF5A022185B7BA00545BA2 /* Frameworks */,
 			);
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF7D27421877822007607A2 /* README.md in Resources */,
 				6CB919BD2185A2F40024E88D /* Assets.xcassets in Resources */,
 				6CB919C02185A2F40024E88D /* Main.storyboard in Resources */,
 			);
@@ -415,6 +419,7 @@
 					"$(PROJECT_DIR)/PS4\\ Remote\\ Sender",
 					"$(PROJECT_DIR)/PS4\\ Remote\\ Sender",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-Sender";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,6 +450,7 @@
 					"$(PROJECT_DIR)/PS4\\ Remote\\ Sender",
 					"$(PROJECT_DIR)/PS4\\ Remote\\ Sender",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "ThatWeirdSoft.PS4-Remote-Sender";
 				PRODUCT_NAME = "$(TARGET_NAME)";

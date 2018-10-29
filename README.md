@@ -14,3 +14,6 @@ That's it! Enjoy :)
 
 Note: Try to use simple package naming, as: Package.pkg for one pkg and Package_1.pkg, Package_2.pkg... for multi-part packages.
 ToDo: Add SimpleHttp server as option, as apache may be buggy and needs moving all .pkgs to hosted folder.
+
+Aknowledgments:
+Cheers to: [Suolapeikko](https://github.com/suolapeikko) and [Erikberglund](https://github.com/erikberglund) for example of privelleged task runner.
