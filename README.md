@@ -12,5 +12,5 @@ How to use:
 
 That's it! Enjoy :)
 
-Note: Try to use simple package naming, as: Package.pkg for one pkg and Package_1.okg, Package_2.pkg... for multi-part packages.
+Note: Try to use simple package naming, as: Package.pkg for one pkg and Package_1.pkg, Package_2.pkg... for multi-part packages.
 ToDo: Add SimpleHttp server as option, as apache may be buggy and needs moving all .pkgs to hosted folder.
