@@ -59,6 +59,7 @@
 		6CB919BF2185A2F40024E88D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CB919C12185A2F40024E88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PS4_Remote_Sender.entitlements; sourceTree = "<group>"; };
+		6CDB284121870B4F0048DFE4 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		6CE7564B2185F4910040DF8C /* PS4RemoteSenderHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PS4RemoteSenderHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE756522185F4AC0040DF8C /* PS4RemoteSenderHelper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PS4RemoteSenderHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		6CE756532185F4AD0040DF8C /* PrivilegedTaskRunnerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivilegedTaskRunnerHelper.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				6CB919C12185A2F40024E88D /* Info.plist */,
 				6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */,
 				6CAF5A0F2185BE8600545BA2 /* PS4 Remote Sender-Bridging-Header.h */,
+				6CDB284121870B4F0048DFE4 /* screen.png */,
 			);
 			path = "PS4 Remote Sender";
 			sourceTree = "<group>";
