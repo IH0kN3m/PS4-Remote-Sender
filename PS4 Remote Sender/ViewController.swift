@@ -16,7 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet private var mainPkgFilesButton: NSButton!
     @IBOutlet private var updatePkgFilesTextField: NSTextField!
     @IBOutlet private var updatePkgFilesButton: NSButton!
-    @IBOutlet private var sendButton: NSButton!
+    @IBOutlet var sendButton: NSButton!
     @IBOutlet private var consoleView: NSTextView!
     
     @IBAction private func mainPkgFilesButtonPressed(_ sender: NSButton) {
@@ -151,7 +151,13 @@ class ViewController: NSViewController {
             checkHelperVersionAndUpdateIfNecessary()
         }
     }
-
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        view.window?.appearance = NSAppearance(named:NSAppearance.Name.vibrantDark)
+        consoleView.backgroundColor = NSColor(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
     @discardableResult
     private func shell(_ commands: [String]) -> Int32 {
         
@@ -191,7 +197,6 @@ class ViewController: NSViewController {
     private func installHelperDaemon() {
         
         console("\n * Privileged Helper daemon was not found, installing a new one...")
-        
         // Create authorization reference for the user
         var authRef: AuthorizationRef?
         var authStatus = AuthorizationCreate(nil, nil, [], &authRef)
@@ -336,7 +341,7 @@ class ViewController: NSViewController {
         // Make an external form of the AuthorizationRef
         var status = AuthorizationMakeExternalForm(authRef!, &authRefExtForm)
         if (status != OSStatus(errAuthorizationSuccess)) {
-            console("\n 8 AuthorizationMakeExternalForm failed")
+            console("\n * AuthorizationMakeExternalForm failed")
             return
         }
         
@@ -436,7 +441,14 @@ class ViewController: NSViewController {
                 self.console("\n * Sending request for Main FPKG's... \n * URL: \(url)")
                 let result = self.sendRequest(request, in: group)
                 self.console("\n * Main FPKG's request code: \(result.1) \n * Main FPKG's request result: \(result.0)")
+                if result.0.contains("fail") {
+                    if result.0.contains("500") {
+                        self.console("\n * Try to restart PS4 and make sure to use simple .pkg naming")
+                    }
+                    return false
+                }
                 if let err = result.2 {
+                    self.console("\n * ERROR! Main FPKG's request returned error.")
                     self.console("\n * ERROR! Main FPKG's request returned: \(err.localizedDescription)")
                     return false
                 }
@@ -462,6 +474,10 @@ class ViewController: NSViewController {
                 self.console("\n * Sending request for Update FPKG's... \n * URL: \(url)")
                 let result = self.sendRequest(request, in: group)
                 self.console("\n * Update FPKG's request code: \(result.1) \n * Update FPKG's request result: \(result.0)")
+                if result.0.contains("fail") {
+                    self.console("\n * ERROR! Main FPKG's request returned error.")
+                    return false
+                }
                 if let err = result.2 {
                     self.console("\n * ERROR! Main FPKG's request returned: \(err.localizedDescription)")
                     return false

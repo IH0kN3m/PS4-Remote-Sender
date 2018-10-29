@@ -16,7 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        viewController?.stopExecution(true)
+        if viewController?.sendButton.title == "STOP" {
+            viewController?.stopExecution(true)
+        }
         viewController?.freeAuthorizationRef()
     }
 }
