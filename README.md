@@ -1,6 +1,8 @@
 # PS4-Remote-Sender
 A simple GUI app for MacOs that I wrote for my use. Based on flat_z remote package installer project. Written natively in swift, good-to-go tool.
 
+![alt text](https://github.com/IH0kN3m/PS4-Remote-Sender/blob/master/PS4%20Remote%20Sender/screen.png)
+
 How to use:
 * Run remote package installer by @flat_z
 * Enter PS4 IP address
