@@ -104,7 +104,7 @@ class ViewController: NSViewController {
         console("\n * Added to queue: Moving FPKG files...")
         
         cmds.append("/usr/sbin/apachectl start")
-        console("\n * Added to queue: Strarting server...")
+        console("\n * Added to queue: Starting server...")
         
         console("\n * Executing scripts...")
         shell(cmds)
@@ -118,7 +118,7 @@ class ViewController: NSViewController {
                 }
                 self.console("\n * Hosting folder has been cleaned up \n * All FPKG's moved to hosted folder \n * Server successfully started")
                 if self.executeRequest(ip) {
-                    self.console("\n\n\n * Success! All links are sent to PS4 \n * Press STOP button after PS4 finishes downloading FPKG's \n * WARNING! Do NOT close application without pressing the STOP button, as it may leave some temporary trash in system and can cause some issues.")
+                    self.console("\n\n\n * Success! All links are sent to PS4 \n * Press the STOP button after PS4 finishes downloading FPKG's \n * WARNING! Do NOT close application without pressing the STOP button, as it may leave some temporary trash in system and can cause some issues.")
                     self.sendButton.isEnabled = true
                     
                 } else {
