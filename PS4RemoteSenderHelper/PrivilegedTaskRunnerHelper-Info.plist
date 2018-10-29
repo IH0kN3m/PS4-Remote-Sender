@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>PS4RemoteSenderHelper</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PS4RemoteSenderHelper</string>
+	<key>CFBundleVersion</key>
+	<string>1.5</string>
+	<key>SMAuthorizedClients</key>
+	<array>
+		<string>identifier "ThatWeirdSoft.PS4-Remote-Sender" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: ih0kn3m@gmail.com (TJXEYM9436)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+	</array>
+</dict>
+</plist>
