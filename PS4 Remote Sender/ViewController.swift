@@ -139,7 +139,7 @@ class ViewController: NSViewController {
     private var mainPkgPath: [String] = []
     private var updatePkgsPath: [String] = []
     
-    // MARK __LIFE CYCLE__
+    // MARK: __LIFE CYCLE__
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,6 +147,8 @@ class ViewController: NSViewController {
         
         consoleView.isEditable = false
         ps4IpTextField.formatter = nil
+        mainPkgFilesTextField.formatter = nil
+        updatePkgFilesTextField.formatter = nil
         ps4IpTextField.stringValue = (UserDefaults.standard.value(forKey: "ps4Ip") as? String) ?? ""
         
         // Create an empty authorization reference
@@ -569,6 +571,7 @@ class ViewController: NSViewController {
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     private func getWiFiAddress() -> String? {
         var address : String?
+        var en1Addr: String?
         
         // Get list of all interfaces on the local machine:
         var ifaddr : UnsafeMutablePointer<ifaddrs>?
@@ -593,11 +596,24 @@ class ViewController: NSViewController {
                                 &hostname, socklen_t(hostname.count),
                                 nil, socklen_t(0), NI_NUMERICHOST)
                     address = String(cString: hostname)
+                
+                } else if name == "en1" {
+                    // Convert interface address to a human readable string:
+                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
+                                &hostname, socklen_t(hostname.count),
+                                nil, socklen_t(0), NI_NUMERICHOST)
+                    en1Addr = String(cString: hostname)
                 }
             }
         }
         freeifaddrs(ifaddr)
         
-        return address
+        if address == nil || address == "" {
+            return en1Addr
+        
+        } else {
+            return address
+        }
     }
 }

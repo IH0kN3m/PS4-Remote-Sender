@@ -717,7 +717,7 @@
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZNK-BO-p7X">
                                         <rect key="frame" x="18" y="470" width="83" height="14"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="by: @IH0kN3m" id="lqW-1m-RGR">
-                                            <font key="font" metaFont="system" size="11"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
