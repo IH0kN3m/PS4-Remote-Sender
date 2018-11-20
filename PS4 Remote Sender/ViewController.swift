@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import SwiftSocket
 
 class ViewController: NSViewController {
     
@@ -16,8 +17,8 @@ class ViewController: NSViewController {
     @IBOutlet private var ps4IpTextField:           NSTextField!
     @IBOutlet private var mainPkgFilesTextField:    NSTextField!
     @IBOutlet private var mainPkgFilesButton:       NSButton!
-    @IBOutlet private var updatePkgFilesTextField:  NSTextField!
-    @IBOutlet private var updatePkgFilesButton:     NSButton!
+    @IBOutlet private var payloadSenderTextField:   NSTextField!
+    @IBOutlet private var payloadSenderButton:      NSButton!
     @IBOutlet private var consoleView:              NSTextView!
     @IBOutlet var sendButton:                       NSButton!
     
@@ -38,7 +39,7 @@ class ViewController: NSViewController {
                     self.mainPkgFilesTextField.placeholderString = "Multiple FPKG's..."
                     self.mainPkgFilesTextField.stringValue = ""
                 }
-                self.console("\n * \(self.mainPkgPath.count == 0 ? "Added" : "Replaced to") \( path.count == 1 ? "Main FPKG" : "Multiple Main FPKG's"):")
+                self.console("\n * \(self.mainPkgPath.count == 0 ? "Added" : "Replaced to") \( path.count == 1 ? "FPKG" : "Multiple FPKG's"):")
                 path.forEach({ self.console("\n \($0)") })
                 self.mainPkgPath = path
                 
@@ -48,40 +49,37 @@ class ViewController: NSViewController {
         })
     }
     
-    @IBAction private func updatePkgFilesButtonPressed(_ sender: NSButton) {
+    @IBAction private func payloadSenderButtonPressed(_ sender: NSButton) {
         guard let window = view.window else { return }
         let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = true
+        panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
-        panel.allowedFileTypes = ["pkg"]
+        panel.allowedFileTypes = ["bin"]
         panel.beginSheetModal(for: window, completionHandler: {
             if $0 == NSApplication.ModalResponse.OK {
-                var path: [String] = []
-                panel.urls.forEach({ path.append($0.absoluteString.replacingOccurrences(of: "file://", with: "") ) })
-                if path.count == 1 {
-                    self.updatePkgFilesTextField.stringValue = path.first ?? ""
-                
-                } else {
-                    self.updatePkgFilesTextField.placeholderString = "Multiple FPKG's..."
-                    self.updatePkgFilesTextField.stringValue = ""
-                }
-                self.console("\n * \(self.updatePkgsPath.count == 0 ? "Added" : "Replaced to") \(path.count == 1 ? "Update FPKG" : "Multiple Update FPKG's"):")
-                path.forEach({ self.console(" \($0)") })
-                self.updatePkgsPath = path
+                self.payloadPath = panel.url
+                self.console("\n * Added Payload: \n \(panel.url?.absoluteString.replacingOccurrences(of: "file://", with: "") ?? "")")
+                self.payloadSenderTextField.stringValue = panel.url?.absoluteString.replacingOccurrences(of: "file://", with: "") ?? ""
             
             } else if $0 != NSApplication.ModalResponse.OK && $0 != NSApplication.ModalResponse.cancel {
-                self.console("\n * Cannot add FPKG... Maybe check file's permissions?")
+                self.console("\n * Cannot add Payload... Maybe check file's permissions?")
             }
         })
     }
     
     @IBAction private func sendButtonPressed(_ sender: NSButton) {
         if sendButton.title == "STOP" {
-            stopExecution(isCanceled: false)
+            if payloadPath != nil {
+                self.sendButton.title = "SEND"
+                self.console("\n\n\n * There was an error while sending Payload. Please, check if everything is set correctly")
+            }
+            if mainPkgPath.count != 0 {
+                stopExecution(isCanceled: false)
+            }
             return
         
-        } else if mainPkgPath.count == 0 && updatePkgsPath.count == 0 {
-            console("\n * Choose FPKG to install!")
+        } else if mainPkgPath.count == 0 && payloadPath == nil {
+            console("\n * Choose files to install!")
             return
         
         }
@@ -98,46 +96,60 @@ class ViewController: NSViewController {
         console("\n\n\n ––––––––––––––––––––––––––––––––––––––––\n * Starting execution...")
         sendButton.title = "STOP"
         sendButton.isEnabled = false
-        var cmds: [String] = []
         
-        cmds.append("/bin/rm -rf /Library/WebServer/Documents/*.pkg")
-        console("\n * Added to queue: Cleaning up hosting folder. Just in case...")
-        
-        mainPkgPath.forEach({ cmds.append("/bin/mv \($0) /Library/WebServer/Documents") })
-        updatePkgsPath.forEach({ cmds.append("/bin/mv \($0) /Library/WebServer/Documents") })
-        console("\n * Added to queue: Moving FPKG files...")
-        
-        cmds.append("/usr/sbin/apachectl start")
-        console("\n * Added to queue: Starting server...")
-        
-        console("\n * Executing scripts...")
-        shell(cmds)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            sleep(2)
-            DispatchQueue.main.async {
-                if self.consoleView.string.contains("XPC error") {
-                    self.stopExecution(isCanceled: true)
-                    return
-                }
-                self.console("\n * Hosting folder has been cleaned up \n * All FPKG's moved to hosted folder \n * Server successfully started")
-                if self.executeRequest(ip) {
-                    self.console("\n\n\n * Success! All links are sent to PS4 \n * Press the STOP button after PS4 finishes downloading FPKG's \n * WARNING! Do NOT close application without pressing the STOP button, as it may leave some temporary trash in system and can cause some issues.")
-                    self.sendButton.isEnabled = true
-                    
-                } else {
-                    self.stopExecution(isCanceled: true)
-                    self.sendButton.isEnabled = true
+        if mainPkgPath.count != 0 {
+            var cmds: [String] = []
+            
+            cmds.append("/bin/rm -rf /Library/WebServer/Documents/*.pkg")
+            console("\n * Added to queue: Cleaning up hosting folder. Just in case...")
+            
+            mainPkgPath.forEach({ cmds.append("/bin/mv \($0) /Library/WebServer/Documents") })
+            console("\n * Added to queue: Moving FPKG files...")
+            
+            cmds.append("/usr/sbin/apachectl start")
+            console("\n * Added to queue: Starting server...")
+            
+            console("\n * Executing scripts...")
+            shell(cmds)
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                sleep(2)
+                DispatchQueue.main.async {
+                    if self.consoleView.string.contains("XPC error") {
+                        self.stopExecution(isCanceled: true)
+                        return
+                    }
+                    self.console("\n * Hosting folder has been cleaned up \n * All FPKG's moved to hosted folder \n * Server successfully started")
+                    do {
+                        try self.executeRequest(ip)
+                        self.console("\n\n\n * Success! All links are sent to PS4 \n * Press the STOP button after PS4 finishes downloading FPKG's \n * WARNING! Do NOT close application without pressing the STOP button, as it may leave some temporary trash in system and can cause some issues.")
+                        
+                    } catch {
+                        self.stopExecution(isCanceled: true)
+                    }
                 }
             }
         }
+        if payloadPath != nil {
+            do {
+                self.console("\(mainPkgPath.count == 0 ? "\n" : "\n\n\n") * Trying to send Payload...")
+                try self.sendPayload(to: ip)
+                self.sendButton.title = "SEND"
+            
+            } catch {
+                self.sendButton.title = "SEND"
+                self.console("\n\n\n * There was an error while sending Payload. Please, check if everything is set correctly")
+            }
+        }
+        self.sendButton.isEnabled = true
     }
     
     override var representedObject: Any? { didSet {} }
     private var connection: NSXPCConnection?
     private var authRef: AuthorizationRef?
+    private var client: TCPClient?
     private var mainPkgPath: [String] = []
-    private var updatePkgsPath: [String] = []
+    private var payloadPath: URL?
     
     // MARK: __LIFE CYCLE__
     
@@ -148,7 +160,10 @@ class ViewController: NSViewController {
         consoleView.isEditable = false
         ps4IpTextField.formatter = nil
         mainPkgFilesTextField.formatter = nil
-        updatePkgFilesTextField.formatter = nil
+        payloadSenderTextField.formatter = nil
+        mainPkgFilesButton.bezelStyle = .texturedSquare
+        payloadSenderButton.bezelStyle = .texturedSquare
+        sendButton.bezelStyle = .texturedSquare
         ps4IpTextField.stringValue = (UserDefaults.standard.value(forKey: "ps4Ip") as? String) ?? ""
         
         // Create an empty authorization reference
@@ -187,15 +202,43 @@ class ViewController: NSViewController {
         return 0
     }
     
-    private func executeRequest(_ ip: String) -> Bool {
+    private func sendPayload(to ip: String) throws {
+        console("\n * Creating connection request...")
+        if let payloadPath = self.payloadPath {
+            let data = try Data(contentsOf: payloadPath)
+            client = TCPClient(address: ip, port: 9020)
+            
+            console("\n * Connecting to PS4...")
+            switch client?.connect(timeout: 15) {
+            case .success?:
+                self.console("\n * Connected")
+                self.console("\n * Sending Payload...")
+            
+                switch self.client?.send(data: data) {
+                case .success?:
+                    self.console("\n * Payload sent \n * Closing connection...")
+                    self.client?.close()
+                    self.console("\n * Disconnected")
+                    self.console("\n\n\n * Success! Payload has been succesfully sent to PS4")
+                default: throw NSError()
+                }
+            default: throw NSError()
+            }
+        
+        } else {
+            throw NSError()
+        }
+    }
+    
+    private func executeRequest(_ ip: String) throws {
         self.console("\n\n\n * Getting current WiFi IP address...")
         let selfIp = self.getWiFiAddress()
         self.console("\n * WiFi addres on interface en0 is: \(selfIp ?? "Unknown...")")
-        if selfIp == nil { return false }
+        if selfIp == nil { throw NSError() }
         
         var mainPkgLinks: [String] = []
         if mainPkgPath.count != 0 {
-            self.console("\n * Forming direct links to Main FPKG's...")
+            self.console("\n * Forming direct links to FPKG's...")
             self.mainPkgPath.forEach({
                 let link = "http://\(selfIp ?? ""):80/\(String($0.split(separator: "/").last ?? ""))"
                 mainPkgLinks.append(link)
@@ -203,86 +246,43 @@ class ViewController: NSViewController {
             })
         }
         
-        var updatePkgLinks: [String] = []
-        if updatePkgsPath.count != 0 {
-            self.console("\n * Creating direct links to Update FPKG's...")
-            self.updatePkgsPath.forEach({
-                let link = "http://\(selfIp ?? ""):80/\(String($0.split(separator: "/").last ?? ""))"
-                updatePkgLinks.append(link)
-                self.console("\n * Created link: \(link)")
-            })
-        }
-        
         self.console("\n * Creating JSON files for requests...")
         let mainJson: [String:Any] = ["type":"direct", "packages":mainPkgLinks]
-        let updateJson: [String:Any] = ["type":"direct", "packages":updatePkgLinks]
         
         self.console("\n * Creating requests...")
         let group = DispatchGroup()
         
-        if mainPkgLinks.count != 0 {
-            if let url = URL(string: "http://\(ip):12800/api/install") {
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                if let mainJsonData = try? JSONSerialization.data(withJSONObject: mainJson, options: .prettyPrinted) {
-                    request.httpBody = mainJsonData
-                    
-                } else {
-                    self.console("\n * Error serializing Main FPKG's JSON...")
-                    return false
-                }
-                group.enter()
-                self.console("\n * Sending request for Main FPKG's... \n * URL: \(url)")
-                let result = self.sendRequest(request, in: group)
-                self.console("\n * Main FPKG's request code: \(result.1) \n * Main FPKG's request result: \(result.0)")
-                if result.0.contains("fail") {
-                    if result.0.contains("500") {
-                        self.console("\n * Try to restart PS4 and make sure to use simple .pkg naming")
-                    }
-                    return false
-                }
-                if let err = result.2 {
-                    self.console("\n * ERROR! Main FPKG's request returned: \(err.localizedDescription)")
-                    return false
-                }
+        if let url = URL(string: "http://\(ip):12800/api/install") {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.timeoutInterval = TimeInterval(15)
+            if let mainJsonData = try? JSONSerialization.data(withJSONObject: mainJson, options: .prettyPrinted) {
+                request.httpBody = mainJsonData
                 
             } else {
-                self.console("\n * Failed to create request. Is PS4's ip address is right? \n * Current PS4's ip: \(ip)")
-                return false
+                self.console("\n * Error serializing FPKG's JSON...")
+                throw NSError()
             }
-        }
-        if updatePkgLinks.count != 0 {
-            if let url = URL(string: "http://\(ip):12800/api/install") {
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                if let updateJsonData = try? JSONSerialization.data(withJSONObject: updateJson, options: .prettyPrinted) {
-                    request.httpBody = updateJsonData
-                    
-                } else {
-                    self.console("\n * Error serializing Update FPKG's JSON...")
-                    return false
+            group.enter()
+            self.console("\n * Sending request for FPKG's... \n * URL: \(url)")
+            let result = self.sendRequest(request, in: group)
+            self.console("\n * FPKG's request code: \(result.1) \n * FPKG's request result: \(result.0)")
+            if result.0.contains("fail") {
+                if result.0.contains("500") {
+                    self.console("\n * Try to restart PS4 and make sure to use simple .pkg naming")
                 }
-                group.enter()
-                self.console("\n * Sending request for Update FPKG's... \n * URL: \(url)")
-                let result = self.sendRequest(request, in: group)
-                self.console("\n * Update FPKG's request code: \(result.1) \n * Update FPKG's request result: \(result.0)")
-                if result.0.contains("fail") {
-                    self.console("\n * ERROR! Main FPKG's request returned error.")
-                    return false
-                }
-                if let err = result.2 {
-                    self.console("\n * ERROR! Main FPKG's request returned: \(err.localizedDescription)")
-                    return false
-                }
-                
-            } else {
-                self.console("\n * Failed to create request. Is PS4's ip address is right? \n * Current PS4's ip: \(ip)")
-                return false
+                throw NSError()
             }
+            if let err = result.2 {
+                self.console("\n * ERROR! FPKG's request returned: \(err.localizedDescription)")
+                throw NSError()
+            }
+            
+        } else {
+            self.console("\n * Failed to create request. Is PS4's ip address is right? \n * Current PS4's ip: \(ip)")
+            throw NSError()
         }
-        return true
     }
     
     func stopExecution(isCanceled: Bool) {
@@ -291,10 +291,6 @@ class ViewController: NSViewController {
         
         var cmds: [String] = []
         mainPkgPath.forEach({
-            let split = String($0.split(separator: "/").last ?? "")
-            cmds.append("/bin/mv /Library/WebServer/Documents/\(split) \($0.replacingOccurrences(of: split, with: ""))")
-        })
-        updatePkgsPath.forEach({
             let split = String($0.split(separator: "/").last ?? "")
             cmds.append("/bin/mv /Library/WebServer/Documents/\(split) \($0.replacingOccurrences(of: split, with: ""))")
         })
@@ -321,7 +317,7 @@ class ViewController: NSViewController {
                 UserDefaults.standard.set(self.ps4IpTextField.stringValue, forKey: "ps4Ip")
                 self.connection = nil
                 
-                self.console("\n * All FPKG's have been moved to original folders \n * Server stopped \n * Hosted folder has been cleaned up from unrigistered FPKG's \n * Connection to helper was closed \n * Prefs saved to persistence \n * Execution helper tool has been... executed \n\n\n * \(isCanceled ? "Execution was aborted. Look above for more information." : "All Done! Yay!")")
+                self.console("\n\n * All FPKG's have been moved to original folders \n * Server stopped \n * Hosted folder has been cleaned up from unrigistered FPKG's \n * Connection to helper was closed \n * Prefs saved to persistence \n * Execution helper tool has been... executed \n\n\n * \(isCanceled ? "Execution was aborted. Look above for more information." : "All Done! Yay!")")
                 self.sendButton.title = "SEND"
                 self.sendButton.isEnabled = true
             }
@@ -589,7 +585,6 @@ class ViewController: NSViewController {
                 // Check interface name:
                 let name = String(cString: interface.ifa_name)
                 if  name == "en0" {
-                    
                     // Convert interface address to a human readable string:
                     var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                     getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C7AB00821A4CA8800E499A3 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AB00721A4CA8700E499A3 /* screen.png */; };
 		6CB919B92185A2F00024E88D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919B82185A2F00024E88D /* AppDelegate.swift */; };
 		6CB919BB2185A2F00024E88D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB919BA2185A2F00024E88D /* ViewController.swift */; };
 		6CB919BD2185A2F40024E88D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB919BC2185A2F40024E88D /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		6CE756622185F4E00040DF8C /* RemoteProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756552185F4AD0040DF8C /* RemoteProcessProtocol.swift */; };
 		6CE756632185F4E00040DF8C /* CodesignChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756542185F4AD0040DF8C /* CodesignChecker.swift */; };
 		6CE756652185FC970040DF8C /* AppAuthorizationRights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE756642185FC970040DF8C /* AppAuthorizationRights.swift */; };
+		6CE7DB1621A4C5B50057D8EF /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7DB1521A4C5B50057D8EF /* SwiftSocket.framework */; };
 		6CF7D27421877822007607A2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6CF7D27321877822007607A2 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C7AB00721A4CA8700E499A3 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
+		6C85111021A4AE3300C38321 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CAF5A032185B7BA00545BA2 /* cocoasudo.dms */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cocoasudo.dms; sourceTree = "<group>"; };
 		6CAF5A072185B90D00545BA2 /* cocoasudo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cocoasudo; path = ../../../../Desktop/cocoasudo; sourceTree = "<group>"; };
 		6CAF5A092185B93500545BA2 /* cocoasudo.dms */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cocoasudo.dms; path = ../../../../Downloads/cocoasudo.dms; sourceTree = "<group>"; };
@@ -60,7 +64,6 @@
 		6CB919BF2185A2F40024E88D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CB919C12185A2F40024E88D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PS4_Remote_Sender.entitlements; sourceTree = "<group>"; };
-		6CDB284121870B4F0048DFE4 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		6CE7564B2185F4910040DF8C /* PS4RemoteSenderHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PS4RemoteSenderHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE756522185F4AC0040DF8C /* PS4RemoteSenderHelper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PS4RemoteSenderHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		6CE756532185F4AD0040DF8C /* PrivilegedTaskRunnerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivilegedTaskRunnerHelper.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		6CE756582185F4AD0040DF8C /* PrivilegedTaskRunnerHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PrivilegedTaskRunnerHelper-Launchd.plist"; sourceTree = "<group>"; };
 		6CE756592185F4AE0040DF8C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6CE756642185FC970040DF8C /* AppAuthorizationRights.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthorizationRights.swift; sourceTree = "<group>"; };
+		6CE7DB1521A4C5B50057D8EF /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF7D27321877822007607A2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE7DB1621A4C5B50057D8EF /* SwiftSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +100,8 @@
 		6CAF5A022185B7BA00545BA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CE7DB1521A4C5B50057D8EF /* SwiftSocket.framework */,
+				6C85111021A4AE3300C38321 /* Starscream.framework */,
 				6CAF5A092185B93500545BA2 /* cocoasudo.dms */,
 				6CAF5A072185B90D00545BA2 /* cocoasudo */,
 				6CAF5A032185B7BA00545BA2 /* cocoasudo.dms */,
@@ -133,7 +140,7 @@
 				6CB919C12185A2F40024E88D /* Info.plist */,
 				6CB919C22185A2F40024E88D /* PS4_Remote_Sender.entitlements */,
 				6CAF5A0F2185BE8600545BA2 /* PS4 Remote Sender-Bridging-Header.h */,
-				6CDB284121870B4F0048DFE4 /* screen.png */,
+				6C7AB00721A4CA8700E499A3 /* screen.png */,
 			);
 			path = "PS4 Remote Sender";
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF7D27421877822007607A2 /* README.md in Resources */,
+				6C7AB00821A4CA8800E499A3 /* screen.png in Resources */,
 				6CB919BD2185A2F40024E88D /* Assets.xcassets in Resources */,
 				6CB919C02185A2F40024E88D /* Main.storyboard in Resources */,
 			);

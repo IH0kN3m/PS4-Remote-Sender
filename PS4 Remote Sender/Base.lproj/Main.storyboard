@@ -707,8 +707,8 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="PS4_Remote_Sender" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" misplaced="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="666" height="533"/>
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="654" height="533"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="ultraDark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="8CL-YE-wia">
@@ -766,7 +766,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="190" id="cZM-Fu-6uX"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Main PKG Files" id="CDm-0n-leM">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Package Files" id="CDm-0n-leM">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -778,7 +778,7 @@
                                     <constraint firstAttribute="height" constant="40" id="AeP-a0-guA"/>
                                     <constraint firstAttribute="width" constant="506" id="wQ6-4k-Xki"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="./****-UPDATE.pkg" drawsBackground="YES" id="tGW-e1-Byz">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="./****-payload.bin" drawsBackground="YES" id="tGW-e1-Byz">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="I8V-fv-Uju"/>
                                     <font key="font" metaFont="system" size="18"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -790,7 +790,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="FN8-ne-Axk"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Update PKG Files" id="Wxq-cM-CO2">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Payload File" id="Wxq-cM-CO2">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -806,15 +806,16 @@
                                     <font key="font" metaFont="system" size="20"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="updatePkgFilesButtonPressed:" target="XfG-lQ-9wD" id="ffL-nd-qWA"/>
+                                    <action selector="payloadSenderButtonPressed:" target="XfG-lQ-9wD" id="LeA-gY-Cdk"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="02m-ik-V4f">
                                 <rect key="frame" x="528" y="357" width="112" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="I3r-r8-8rS"/>
+                                    <constraint firstAttribute="height" constant="40" id="xn1-UT-m49"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VEg-02-H61">
+                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="VEg-02-H61">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
                                 </buttonCell>
@@ -865,7 +866,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="614" id="ocg-er-T9g"/>
                                 </constraints>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="HsE-Sp-4dl">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="HsE-Sp-4dl">
                                     <rect key="frame" x="598" y="0.0" width="16" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -909,10 +910,10 @@
                         <outlet property="consoleView" destination="UlK-ga-TlN" id="Zf4-hu-467"/>
                         <outlet property="mainPkgFilesButton" destination="02m-ik-V4f" id="69q-cE-Sj3"/>
                         <outlet property="mainPkgFilesTextField" destination="Ufl-5X-v8u" id="dfd-6i-GXt"/>
+                        <outlet property="payloadSenderButton" destination="Us0-Be-gDk" id="Jrl-fA-dOi"/>
+                        <outlet property="payloadSenderTextField" destination="gbK-ZQ-vOK" id="lLh-NI-8CH"/>
                         <outlet property="ps4IpTextField" destination="vNo-zu-IT2" id="Uic-yL-h2S"/>
                         <outlet property="sendButton" destination="VPJ-1S-PHx" id="OIL-8N-GV5"/>
-                        <outlet property="updatePkgFilesButton" destination="Us0-Be-gDk" id="Xg1-7Q-Npy"/>
-                        <outlet property="updatePkgFilesTextField" destination="gbK-ZQ-vOK" id="oV1-re-8vh"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
